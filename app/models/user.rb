@@ -37,4 +37,11 @@ class User
   has_many :tweets
   # embedded_in との対応は以下
   # embeds_many :tweets
+
+  has_many :followings, foreign_key: :from_user_id
+  has_many :followers, foreign_key: :to_user_id, class_name: 'Following'
+
+  def following_users
+    followings.pluck(:to_user).map { |e| User.find e }
+  end
 end

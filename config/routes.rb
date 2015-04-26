@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items
   post '/tweets' => 'tweets#create'
   get '/users' => 'users#index'
+  post '/followings' => 'followings#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
