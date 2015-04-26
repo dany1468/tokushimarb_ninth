@@ -1,10 +1,13 @@
 class TimelinesController < ApplicationController
   def index
-    if user_signed_in?
-      @tweets = Tweet.in(user_id: display_users)
+
+    query = if user_signed_in?
+      Tweet.in(user_id: display_users)
     else
-      @tweets = Tweet.all
+      Tweet.all
     end
+
+    @tweets = query.order_by(:posted_at.desc)
   end
 
   private

@@ -5,6 +5,7 @@
     <div class="row">
       <%= tweet.body %>
       <%= tweet.user.email %>
+      <%= tweet.posted_at.strftime('%Y/%m/%d %H:%M:%S') %>
     </div>
   <% end %>
 </div>
