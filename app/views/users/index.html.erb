@@ -1,3 +1,14 @@
+<div class="container-fluid">
 <% @users.each do |user| %>
-  <%= user.email %>
+  <div class="row">
+    <div class="col-lg-8"><%= user.email %></div>
+    <div class="col-lg-4">
+      <% if user == current_user %>
+        それはあなたです
+      <% else %>
+        フォローするボタン
+      <% end %>
+    </div>
+  </div>
 <% end %>
+</div>
