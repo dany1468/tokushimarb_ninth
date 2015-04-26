@@ -8,6 +8,10 @@
       <% else %>
         <% if current_user.following_users.include? user %>
           フォロー済み
+          <%= form_tag '/followings', method: :delete do %>
+            <%= hidden_field_tag :to_user_id, user.id.to_s %>
+            <%= submit_tag('フォーロを解除') %>
+          <% end %>
         <% else %>
           <%= form_for Following.new do |f| %>
             <%= f.hidden_field :to_user_id, value: user.id.to_s %>

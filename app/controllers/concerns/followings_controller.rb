@@ -5,4 +5,12 @@ class FollowingsController < ApplicationController
 
     redirect_to root_url
   end
+
+  def destroy
+    following = current_user.followings.find_by(to_user_id: params[:to_user_id])
+
+    following.try(:destroy!)
+
+    redirect_to users_path, notice: 'フォローを解除しました'
+  end
 end
