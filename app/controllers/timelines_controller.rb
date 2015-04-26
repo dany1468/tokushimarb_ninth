@@ -7,7 +7,7 @@ class TimelinesController < ApplicationController
       Tweet.all
     end
 
-    @tweets = query.order_by(:posted_at.desc)
+    @tweets = query.desc(:posted_at)
   end
 
   private
