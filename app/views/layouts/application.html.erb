@@ -53,6 +53,11 @@
             <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
         </div>
+        <% if user_signed_in? %>
+          Hello <%= current_user.email %>, <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          you are not signing in. <%= link_to 'Sing in', new_user_session_path %>
+        <% end %>
       </div>
     </div>
 
