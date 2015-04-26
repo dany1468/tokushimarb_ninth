@@ -46,3 +46,5 @@ group :development, :test do
   gem 'mongoid-rspec', '2.2.0'
 end
 
+gem 'twitter-bootstrap-rails', '3.2.0'
+gem 'therubyracer'
